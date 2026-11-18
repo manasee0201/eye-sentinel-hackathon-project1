@@ -238,7 +238,7 @@ elif selected_view == "Diagnostic Workspace":
         uploaded_file = st.file_uploader("Choose retinal image...", type=["jpg", "jpeg", "png"])
         patient_id_input = st.text_input("Patient ID / Reference Name", value="PAT-8921")
         if uploaded_file is not None:
-            image = Image.open(uploaded_file)
+            image = Image.open(uploaded_file).convert("RGB")
             st.image(image, caption="Uploaded Scan Preview")
 
     with result_col:
